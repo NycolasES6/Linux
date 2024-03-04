@@ -47,5 +47,3 @@ Com o comando ``mv`` podemos mover e também renomear arquivos e diretórios. A 
 Vamos supor que queremos ter o readme.txtno local/diretório. Então podemos copiá-los para lá com os caminhos especificados.
 
 ``NycolasES6@htb[/htb]$ cp Storage/readme.txt Storage/local/``
-
-
