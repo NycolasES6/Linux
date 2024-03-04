@@ -50,8 +50,8 @@ O prompt pode ser personalizado usando caracteres especiais e variáveis ​​n
 
 ### \w - ``Caminho completo do diretório de trabalho atual``
 
-ersonalizar o prompt pode ser uma forma útil de tornar a experiência do seu terminal mais personalizada e eficiente. Também pode ser uma ferramenta útil para solução de problemas e solução de problemas, pois pode fornecer informações importantes sobre o estado do sistema a qualquer momento.
+Personalizar o prompt pode ser uma forma útil de tornar a experiência do seu terminal mais personalizada e eficiente. Também pode ser uma ferramenta útil para solução de problemas e solução de problemas, pois pode fornecer informações importantes sobre o estado do sistema a qualquer momento.
 
 Além de personalizar o prompt, podemos personalizar o ambiente do terminal com diferentes esquemas de cores, fontes e outras configurações para tornar o ambiente de trabalho mais atraente visualmente e mais fácil de usar.
 
-No entanto, vemos o mesmo que quando trabalhamos na GUI do Windows aqui. Estamos logados como usuário em um computador com um nome específico e sabemos em qual diretório estamos quando navegamos em nosso sistema. O prompt do Bash também pode ser personalizado e alterado de acordo com nossas próprias necessidades. O ajuste do prompt do bash está fora do escopo deste módulo. No entanto, podemos olhar para o bash-prompt-generator e powerline , o que nos dá a possibilidade de adaptar o nosso prompt às nossas necessidades.
+No entanto, vemos o mesmo que quando trabalhamos na GUI do Windows aqui. Estamos logados como usuário em um computador com um nome específico e sabemos em qual diretório estamos quando navegamos em nosso sistema. O prompt do Bash também pode ser personalizado e alterado de acordo com nossas próprias necessidades. O ajuste do prompt do bash está fora do escopo deste módulo. No entanto, podemos olhar para o ``bash-prompt-generator`` e ``powerline`` , o que nos dá a possibilidade de adaptar o nosso prompt às nossas necessidades.
