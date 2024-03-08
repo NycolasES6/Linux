@@ -60,5 +60,3 @@ Quando tivermos o editor Vim aberto, podemos entrar no modo de comando digitando
 O Vim oferece uma excelente oportunidade para **vimtutor** praticar e se familiarizar com o editor. Pode parecer muito difícil e complicado no início, mas só será assim por um curto período de tempo. A eficiência que ganhamos com o Vim quando nos acostumamos é enorme. Entrar no modo **tutor** pode ser feito usando o modo de comando **:Tutor**.
 
 ``NycolasES6@htb[/htb]$ vimtutor``
-
-
