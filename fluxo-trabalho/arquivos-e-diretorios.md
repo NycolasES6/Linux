@@ -18,7 +18,7 @@ A seguir, vamos trabalhar com arquivos e diretórios e aprender como criar, reno
 
 Neste exemplo, nomeamos o arquivo info.txt e o diretório Storage. Para criá-los, seguimos os comandos e sua sintaxe mostrados acima.
 
-### Crie um arquivo vazio
+### Crie um arquivo vazis
 
 `NycolasES6@htb[/htb]$ touch info.txt`
 
