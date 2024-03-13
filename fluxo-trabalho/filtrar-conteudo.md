@@ -100,10 +100,58 @@ O sinalizador "**s**" no início representa o comando substituto. Em seguida, es
 
 ![alt text](filtrar-conteudo-sed.png)
 
+## wc
 
+Por último, mas não menos importante, muitas vezes será útil saber quantas partidas bem-sucedidas temos. Para evitar a contagem manual de linhas ou caracteres, podemos usar a ferramenta **wc**. Com a opção " **-l** ", especificamos que apenas as linhas são contadas.
 
+``NycolasES6@htb[/htb]$ cat /etc/passwd | grep -v "false\|nologin" | tr ":" " " | awk '{print $1, $NF}' | wc -l``
+``5``
 
+## Prática
 
+Pode ser um pouco complicado no início lidar com tantas feerramentas diferentes e suas funções se não estivermos familiarizados com elas. Não tenha pressa e experiente e as ferramentas. Dê  uma olhada nas páginas de manual ou de ajuda.
 
+Aqui estão alguns exercícios opcionais que podemos usar para melhorar nossas habilidades de filtragem de comandos. O arquivo com o qual precisaremos trabalhar é o arquivo **/etc/passwd** no nosso alvo e podemos usar qualquer comando mostrado acima. Nosso objetivo é filtrar e exibir apenas os conteúdos específicos. Leia o arquivo e filtre o seu conteúdo de forma que vejamos apenas:
 
+| PASSO | DECRIÇÃO |
+| :---: |   ---    |
+| 1 | Uma linha com o nome de usuário **cry0l1t3**.|
+| 2 | Os nomes de usuário.|
+| 3 | O nome de usuário **cry0l1t3** e seu UID.|
+| 4 | O nome de usuário **cry0l1t3** e seu UID separados por vírgula ( **,**).|
+| 5 | O nome de usuário **cry0l1t3** , seu UID e o shell do conjunto separados por vírgula ( **,**).|
+| 6 | Todos os nomes de usuário com seu UID e shells definidos separados por vírgula ( **,**).|
+| 7 | Todos os nomes de usuário com seu UID e shells definidos separados por vírgula ( **,**) e excluem aqueles que contêm **nologino** u **false**.|
+| 8 | Todos os nomes de usuário com seu UID e shells definidos separados por vírgula ( **,**) e excluem aqueles que contêm **nologin** e contam todas as linhas da saída filtrada.|
+
+## Resolução
+
+| PASSO | COMANDO  |
+| :---: |   ---    |
+| 1 | `cat /etc/passwd \| grep "cry0l1t3"` |
+| 2 | `cat /etc/passwd \| cut -d ":" -f1` |
+| 3 | `cat /etc/passwd \| grep "cry0l1t3" \| cut -d ":" -f1,3`|
+| 4 | `cat /etc/passwd \| grep "cry0l1t3" \| cut -d ":" -f1,3 \| tr ":" ","`
+| 5 | `cat /etc/passwd \| grep "cry0l1t3" \| cut -d ":" -f1,3,7\| tr ":" ","` |
+| 6 | `cat /etc/passwd \| cut -d ":" -f1,3,7 \| tr ":" ","` |
+| 7 | `cat /etc/passwd \| grep -v "false\|nologin" \| cut -d ":" -f1,3,7 \| tr ":" ","` |
+| 8 | `cat /etc/passwd \| grep -v "nologin" \| cut -d ":" -f1,3,7 \| tr ":" "," \| wc -l` |
+
+## Questions
+
+### Quantos serviços estão escutando no sistema de destino em todas as interfaces? (Não apenas em localhost e IPv4)
+
+`netstat -ln4 | grep LISTEN | grep -v 127 | wc -l`
+
+### Determine em qual usuário o servidor ProFTPd está sendo executado. Envie o nome de usuário como resposta.
+
+`cat /etc/proftpd/proftpd.conf | grep "[Uu]ser"`
+
+ou :
+
+`ps aux | grep “proftpd”`
+
+### Use cURL from your Pwnbox (not the target machine) to obtain the source code of the "https://www.inlanefreight.com" website and filter all unique paths of that domain. Submit the number of these paths as the answer.
+
+`curl https://www.inlanefreight.com/ | grep -Po "https://www.inlanefreight.com/[^'\"]*" | sort -u | wc -l`
 
