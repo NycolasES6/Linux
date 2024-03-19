@@ -37,6 +37,45 @@ Vejamos todas as representações a ele para entender melhor como a atribuição
 
 ![alt text](../img/permissoes-02.png)
 
+Se somarmos os bits definidos Binary Representation atribuidos aos valores Binary Notation juntos, obteremos o Octal Value. O Permission Representation representa os bits definidos no Binary Representation usando os três caracteres, o que apenas reconhece as permissões definidas com mais facilidade.
+
+## Alterar proprietário
+
+Para alterar o proprietário e/ou as atribuições de grupo de um arquivo ou diretório, podemos usar o comando chown. A sintaxe é a seguinte:
+
+### Sintaxe - chown
+
+`chown <user>:<group> <file/directory>`
+
+Neste exemplo, "shell" pode ser substituído por qualquer arquivo ou pasta arbitrária.
+
+`chown root:root shell && ls -l shell`
+
+## SUID e SGID
+
+Além de atribuir permissões diretas a usuários e grupos, também podemos configurar permissões especiais para arquivos definindo os bits Set User ID(SUID) e Set Group ID(SGID). Esses bits SUID/SGID permitem, por exemplo, que usuários executem programas com os direitos de outro usuário. Os administradores costumam usar isso para conceder aos usuários direitos especiais para determinados arquivos ou aplicaivos. A ltera "s" é usada em vez de "x". Ao executar tal programa, o SUID/SGID do proprietário do arquivo é usado.
+
+Muitas vezes acontece que os administradores não estão familiarizados com os aplicativos, mas ainda assim atribuem os bits SUID/SGID, o que leva a um alto risco de segurança. Tais programas podem conter funções que permitem a execução de um shell a partir do pger, como a aplicação"journalctl".
+
+Se o admistrador definir o bit SUID como "journalctl", qualquer usuário com acesso a este aplicativo poderá executar um shell como root. Mais informações sobre este e outros aplicativos podem ser encontradas em GTFObins.
+
+## Pedaço pegajoso
+
+Sticky bits são um tipo de permissão de arquivo no linux que pode ser definida em diretórios. Este tipo de permissão fornece uma camada extra de segurança ao controlar a exclusão e a renomeação de um marquivo dentro de um diretório. Geralmente é usado em diretórios compartilhados por vários usuários para evitar que um usuário exclua ou renomeie acidentalmente arquivoa que são importantes para outros.
+
+Por exemplo, em um diretório inicial compartilhado, onde vários usuários têm acesso ao mesmo diretório, um administrador do sistema pode definir o sticky bit no diretório para garantir que apenas o proprietário do arquivo, o proprietário do diretório ou o usuário root pode excluir ou renomear arquivos dentro do diretório. Isso significa que outros usuários não podem excluir ou renomear arquivos no diretório porque não possuem as permissões necessárias. Isso fornece uma camada adicional de segurança para proteger arquivos importantes, pois somente aqueles com o acesso necessário podem excluir ou renomear arquivos. Definir o sticky bit em um diretório garante que apenas o proprietário, o proprietário do diretório ou o usuário root possam alterar os arquivos dentro do diretório.
+
+Quando um sticky bit é definido em um diretório, ele é representado pela letra "t" na permissão de execução das permissões do diretório. Por exemplo, se um diretório tiver permissões "rwxrwxrwt", significa que o sticky bit está definido, dando o extra nível de segurança para que ninguém além do proprietário ou usuário root possa excluir ou renomear os arquivos ou pastas no diretório.
+
+![text alt](../img/permissoes-03.png)
+
+Neste exemplo, vemos que ambos os diretórios têm o sticky bit definido. No entanto, a pasta reports tem letras T maiúsculas e a script tem letras t minúsculas.
+
+Se o sticky bit estiver maiúsculo, isso significa que todos os outros usuários não têm permissões de execução e, portanto, não podem ver o conteúdo da pasta nem executar nenhum programa a partir dela. O scticky bit minúsculo é o bit sticky onde as permissões de execução foram definidas.
+
+
+
+
 
 
 
